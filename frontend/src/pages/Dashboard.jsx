@@ -22,7 +22,6 @@ const Dashboard = () => {
                 "Authorization" : "Bearer "+ token,
             }
         }).then((res)=>{
-             console.log(res.data);
              setBalance(res.data.balance.toFixed(2))
         // eslint-disable-next-line no-unused-vars
         })

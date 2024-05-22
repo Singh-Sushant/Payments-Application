@@ -11,10 +11,7 @@ export const SendMoney = () => {
   const token  = localStorage.getItem("token")
 
   function isNotAuthenticated(){
-    console.log("in not authenticated");
-    console.log(token);
      if(token == null || token == undefined){
-      console.log("in here");
       navigate('/signin')
     }
   }
@@ -76,7 +73,6 @@ export const SendMoney = () => {
                           }
                         })
                         const res = promise.data.message
-                        console.log(res)
                         if(res == "insufficient balance"){
                           navigate('/dashboard')
                           alert("insufficient balance")

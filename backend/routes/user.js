@@ -51,7 +51,7 @@ router.post('/signup' , async (req,res)=>{
         userId : userId,
         balance : 1+ Math.random() * 1000
     })
-    console.log('HERE ');
+
 
     const token = jwt.sign({
         userId : dbUser._id
