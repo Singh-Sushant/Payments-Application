@@ -31,8 +31,17 @@ const Signup = () => {
               username,
               password 
             })
-            localStorage.setItem("token" , response.data.token)
-            navigate("/dashboard")
+
+            if(response.data.message == "Email already taken / Incorrect inputs"){
+              alert("Email already taken")
+            }
+            else if(response.data.message == "Incorrect inputs"){
+              alert("Incorrect inputs")
+            }
+            else{
+              localStorage.setItem("token" , response.data.token)
+              navigate("/dashboard")
+            }
           }} text={"Sign Up"} />
         </div>
         <BottomWarning label = {"Already have an account? "} linkText={"Sign In"} to={"/signin"}/>

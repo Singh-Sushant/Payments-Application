@@ -25,7 +25,7 @@ router.post('/signup' , async (req,res)=>{
     const {success} = userSignup.safeParse(body)
     if(!success){
         return res.json({
-            message : "Email already taken / Incorrect inputs"
+            message : "Incorrect inputs"
         })
     }
     
@@ -34,7 +34,7 @@ router.post('/signup' , async (req,res)=>{
         username : body.username
     })
 
-    console.log(typeof(user));
+    
     if(user){
          return res.json({
             message : "Email already taken / Incorrect inputs"

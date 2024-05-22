@@ -15,7 +15,7 @@ const Dashboard = () => {
 
     useEffect(()=>{
         const token = localStorage.getItem("token") 
-        if(!token) navigate('/signin')
+        if(token==null || token == undefined) navigate('/signin')
 
         axios.get(`${BASE_URL}/api/v1/account/balance`,{
             headers:{
