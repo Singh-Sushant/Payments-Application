@@ -6,6 +6,7 @@ import InputBox from "../components/InputBox"
 import SubHeading from "../components/SubHeading"
 import  axios  from "axios"
 import { useNavigate } from "react-router-dom"
+import { BASE_URL } from "../../services/helper"
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -24,7 +25,7 @@ const Signup = () => {
         <InputBox label={"Password"} placeholder={"123456 (minimum length 6)"}    onChange={e=>{setPassword(e.target.value)}}/>
         <div>
           <Button onClick={async ()=>{
-            const response = await axios.post("http://localhost:4000/api/v1/user/signup" , {
+            const response = await axios.post(`${BASE_URL}/api/v1/user/signup`, {
               firstName,
               lastName,
               username,

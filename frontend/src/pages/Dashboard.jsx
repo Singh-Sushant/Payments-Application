@@ -4,6 +4,7 @@ import { Balance } from "../components/Balance"
 import {Users}  from "../components/Users"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
+import { BASE_URL } from "../../services/helper"
 
 const Dashboard = () => {
     const navigate = useNavigate();
@@ -15,8 +16,8 @@ const Dashboard = () => {
     useEffect(()=>{
         const token = localStorage.getItem("token") 
         if(!token) navigate('/signin')
-            
-        axios.get("http://localhost:4000/api/v1/account/balance",{
+
+        axios.get(`${BASE_URL}/api/v1/account/balance`,{
             headers:{
                 "Authorization" : "Bearer "+ token,
             }
