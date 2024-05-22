@@ -8,10 +8,13 @@ import axios from "axios"
 import { useNavigate } from "react-router-dom"
 
 const Signin = () => {
+  
   const navigate = useNavigate();
+
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  return (
+  return (<>
+
     <div className="flex items-center bg-slate-300 h-screen justify-center">
       <div className="bg-white shadow-2xl rounded-lg p-7 text-center">
       <Heading title={"Sign In"}/>
@@ -39,6 +42,7 @@ const Signin = () => {
       <BottomWarning label={"Don't have an account? "} linkText={"Sign Up"} to={"/signup"} />
     </div>
     </div>
+    </>
   )
 }
 

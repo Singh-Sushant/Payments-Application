@@ -1,17 +1,38 @@
 
-import { useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useSearchParams ,   } from 'react-router-dom';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { Appbar } from '../components/Appbar';
 
 export const SendMoney = () => {
   const navigate = useNavigate();
+  const token  = localStorage.getItem("token")
+
+  function isNotAuthenticated(){
+    console.log("in not authenticated");
+    console.log(token);
+     if(token == null || token == undefined){
+      console.log("in here");
+      navigate('/signin')
+    }
+  }
+
+
+  useEffect(()=>{
+    isNotAuthenticated();
+  },[])
+
   const [searchParams] = useSearchParams();
   const name = searchParams.get("name") 
   const id =searchParams.get("id")
   const [amount, setAmount] = useState(0)
 
-    return <div className="flex justify-center h-screen bg-gray-100">
+    return <>
+    
+      <Appbar />
+       <div className="flex justify-center h-screen bg-gray-100">
+        
         <div className="h-full flex flex-col justify-center">
             <div
                 className="border h-min text-card-foreground max-w-md p-4 space-y-8 w-96 bg-white shadow-lg rounded-lg"
@@ -74,4 +95,5 @@ export const SendMoney = () => {
         </div>
       </div>
     </div>
+    </>
 }
